@@ -41,37 +41,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // final appTema = Provider.of<TemasProvider>(context).temaActual;
 
-    return MultiProvider(
-      providers: [
-        // ChangeNotifierProvider(create: (_) => ProviderIdioma()),
-        // ChangeNotifierProvider(create: (_) => ProviderLogin()),
-        // ChangeNotifierProvider(
-        //   create: (_) => ProviderMvdi(),
-        // ),
-        // ChangeNotifierProvider(
-        //   create: (_) => ProviderNavigationBar(),
-        // )
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        locale: const Locale('es'),
-        title: 'Venta de Bonos',
-        // localizationsDelegates: AppLocalizations.localizationsDelegates,
-        // supportedLocales: AppLocalizations.supportedLocales,
-        // theme: appTema,
-        // home: RegistroColocacion(),
-        home: const Home(),
-        // home: PagoQr(show: true, idColocacion: 123, monto: 123),
-        // home: PagoTransferencia(show: true, monto: 1000, cuc: '101235678'),
-        builder: (BuildContext context, Widget? child) {
-          final MediaQueryData data = MediaQuery.of(context);
-          return MediaQuery(
-            data: data.copyWith(textScaleFactor: 1.0),
-            child: child!,
-          );
-        },
-        // home: Principal(),
+    return MaterialApp(
+      // debugShowCheckedModeBanner: false,
+      // locale: const Locale('es'),
+      // title: 'Venta de Bonos',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
+      // localizationsDelegates: AppLocalizations.localizationsDelegates,
+      // supportedLocales: AppLocalizations.supportedLocales,
+      // theme: appTema,
+      // home: RegistroColocacion(),
+      home: Home(),
+      // home: PagoQr(show: true, idColocacion: 123, monto: 123),
+      // home: PagoTransferencia(show: true, monto: 1000, cuc: '101235678'),
+      // builder: (BuildContext context, Widget? child) {
+      //   final MediaQueryData data = MediaQuery.of(context);
+      //   return MediaQuery(
+      //     data: data.copyWith(textScaleFactor: 1.0),
+      //     child: child!,
+      //   );
+      // },
+      // home: Principal(),
     );
   }
 }
