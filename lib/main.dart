@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'UI/Estilos/Estilos.dart';
 import 'UI/Pages/Home.dart';
 import 'UX/Services/LocalStore.dart';
 
@@ -8,9 +9,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await LocalStore.configurePrefs();
   // int codTema = LocalStore.prefs.getInt('tema') ?? 1;
-  await LocalStore.eliminarToken();
-  await LocalStore.eliminarUsuario();
-  await LocalStore.eliminarUrlBase();
+  // await LocalStore.eliminarToken();
+  // await LocalStore.eliminarUsuario();
+  // await LocalStore.eliminarUrlBase();
+  // await LocalStore.guardarUsuario('c2');
   // DartPingIOS.register();
   // await DataBaseSql.configureDB();
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
@@ -41,28 +43,52 @@ class MyApp extends StatelessWidget {
     // final appTema = Provider.of<TemasProvider>(context).temaActual;
 
     return MaterialApp(
-      // debugShowCheckedModeBanner: false,
-      // locale: const Locale('es'),
-      // title: 'Venta de Bonos',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light().copyWith(
+        drawerTheme: DrawerThemeData(backgroundColor: PLOMO_OSCURO),
+        dividerColor: BEIGE,
+        listTileTheme: ListTileThemeData(
+            iconColor: BEIGE,
+            textColor: BEIGE,
+            selectedTileColor: PLOMO_OSCURO,
+            tileColor: PLOMO_OSCURO),
+        iconTheme: IconThemeData(color: PLOMO_OSCURO),
+        appBarTheme: AppBarTheme(color: PLOMO_OSCURO, foregroundColor: BEIGE),
+        scaffoldBackgroundColor: BEIGE_OSCURO,
+        cardTheme: CardTheme(
+          color: CAFE_OSCURO,
+        ),
+        textSelectionTheme: TextSelectionThemeData(
+          selectionColor: PLOMO_OSCURO.withOpacity(0.5),
+          cursorColor: PLOMO_OSCURO.withOpacity(0.6),
+          selectionHandleColor: PLOMO_OSCURO.withOpacity(1),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(CAFE),
+        )),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+            foregroundColor: BEIGE, backgroundColor: PLOMO_OSCURO),
+        bottomAppBarTheme: BottomAppBarTheme(color: BEIGE_OSCURO),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: PLOMO_OSCURO,
+            primary: CAFE,
+            primaryContainer: CAFE,
+            onPrimary: CAFE_OSCURO,
+            onPrimaryContainer: CAFE_OSCURO,
+            inversePrimary: CAFE,
+            //
+            secondary: PLOMO,
+            secondaryContainer: PLOMO,
+            onSecondary: PLOMO_OSCURO,
+            onSecondaryContainer: PLOMO_OSCURO,
+            //
+            tertiary: BEIGE,
+            tertiaryContainer: BEIGE,
+            onTertiary: BEIGE_OSCURO,
+            onTertiaryContainer: BEIGE_OSCURO),
       ),
-      // localizationsDelegates: AppLocalizations.localizationsDelegates,
-      // supportedLocales: AppLocalizations.supportedLocales,
-      // theme: appTema,
-      // home: RegistroColocacion(),
       home: Home(),
-      // home: PagoQr(show: true, idColocacion: 123, monto: 123),
-      // home: PagoTransferencia(show: true, monto: 1000, cuc: '101235678'),
-      // builder: (BuildContext context, Widget? child) {
-      //   final MediaQueryData data = MediaQuery.of(context);
-      //   return MediaQuery(
-      //     data: data.copyWith(textScaleFactor: 1.0),
-      //     child: child!,
-      //   );
-      // },
-      // home: Principal(),
     );
   }
 }

@@ -13,8 +13,8 @@ Color PLOMO = Color.fromRGBO(91, 100, 105, 1.0);
 Color BEIGE_OSCURO = Color.fromRGBO(235, 234, 227, 1);
 Color BEIGE = Color.fromRGBO(231, 230, 225, 1);
 
-Color CAFE_OSCURO = Color.fromRGBO(133, 109, 66, 1.0);
-Color CAFE = Color.fromRGBO(150, 123, 70, 1.0);
+Color CAFE_OSCURO = Color.fromRGBO(71, 81, 84, 1.0);
+Color CAFE = Color.fromRGBO(91, 100, 105, 1.0);
 
 class Estilos {
   // textfromfield(String titulo, Color col,

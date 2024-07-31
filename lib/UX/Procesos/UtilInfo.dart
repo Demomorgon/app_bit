@@ -1,15 +1,14 @@
-import 'package:device_info_plus/device_info_plus.dart';
+// import 'package:device_info_plus/device_info_plus.dart';
 // import 'package:sipco/UX/Services/LocalStore.dart';
-import 'package:network_info_plus/network_info_plus.dart';
+// import 'package:network_info_plus/network_info_plus.dart';
 
 import '../Services/LocalStore.dart';
 
 class UtilInfo {
   static Future<void> obtenerDatosMobil() async =>
-      await LocalStore.guardarMobil(
-          (await DeviceInfoPlugin().androidInfo).model);
+      await LocalStore.guardarMobil('');
   static Future<void> obtenerWifiInfo() async =>
-      await LocalStore.guardarWifi((await NetworkInfo().getWifiIP()) ?? '');
+      await LocalStore.guardarWifi('');
   // static Future<void> obtenerImei() async {
   //   var permission = await Permission.phone.status;
   //   if (permission.isGranted) {

@@ -1,13 +1,23 @@
 import 'package:app_bit/UI/Componentes/ColumnWidgetSinFondo.dart';
+import 'package:app_bit/UI/Componentes/Dialogo/Mensajes.dart';
 import 'package:app_bit/UI/Componentes/GenericoTextTema3.dart';
+import 'package:app_bit/UI/Pages/Home.dart';
+import 'package:app_bit/UX/Entidades/Bit/TransferenciaPojo.dart';
+import 'package:app_bit/UX/Procesos/UtilNavegation.dart';
+import 'package:app_bit/UX/Services/LocalStore.dart';
+import 'package:app_bit/UX/Services/Services.dart';
 import 'package:flutter/material.dart';
 
 import '../Componentes/Dialogo/Dialogo.dart';
 
 class Transferencia extends StatelessWidget {
-  Transferencia({super.key});
+  Transferencia({
+    super.key,
+  });
 
   final _formKey = GlobalKey<FormState>();
+
+  TranferenciaPojo t = TranferenciaPojo.fromMap({});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +37,13 @@ class Transferencia extends StatelessWidget {
               'Cancelar',
               () async => true,
             )) {
-              print('se confirmo');
+              t.from = LocalStore.obtenerUsuario();
+              if ((await Services.tranferencia(t)).result == 'ok') {
+                UtilNavegation.navegationReplaceFathers(context, Home());
+                mensajeCorrecto(context, 'Exito en transferencia');
+              } else {
+                mensajeError(context, 'Error en transferencia');
+              }
             }
           }
         },
@@ -43,6 +59,7 @@ class Transferencia extends StatelessWidget {
         GenericoTextTema3(
           titulo: 'Alias',
           keyboardType: TextInputType.name,
+          textController: t.to,
           maxLength: 50,
           counterText: '',
           validacion: (value) {
@@ -51,6 +68,7 @@ class Transferencia extends StatelessWidget {
         ),
         GenericoTextTema3(
           titulo: 'Monto',
+          textController: t.amount,
           keyboardType: TextInputType.number,
           maxLength: 5,
           validacion: (value) {

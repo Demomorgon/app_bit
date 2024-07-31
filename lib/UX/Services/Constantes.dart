@@ -6,6 +6,9 @@ const String ipSai = 'http://10.3.11.129:8080';
 const String ipSiabs = '10.3.11.114';
 const String ipMvdi = 'http://10.3.11.129:8080/bcb-mvdi-rest/rest/';
 
+// const String ipMoneda = 'http://192.168.96.111:3000/';
+// const String ipMoneda = 'http://192.168.96.3:3000/';
+
 const String urlBaseSai = '$ipSai/bcb-sai-rest/rest/';
 const String urlBaseMvdi = ipMvdi;
 //PRODUCCION
@@ -47,7 +50,7 @@ const String tutorialEliminarDB = 'tutorialEliminarDB';
 
 const String tema = 'tema';
 
-const String usuario = 'usuario';
+const String usuario = 'usuario2';
 const String token = 'token';
 const String llave = 'llave';
 const String modelo = 'modelo';

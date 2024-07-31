@@ -211,39 +211,30 @@ class DialogoWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 ElevatedButton(
-                    style: ButtonStyle(
-                        // backgroundColor: MaterialStateProperty.all(
-                        //     providerThema.temaActual.colorScheme.secondary),
-                        ),
+                    // style: ButtonStyle(
+                    //     // backgroundColor: MaterialStateProperty.all(
+                    //     //     providerThema.temaActual.colorScheme.secondary),
+                    //     ),
                     onPressed: () {
                       res = false;
                       Navigator.pop(context);
                     },
-                    child: Text(
-                      cancelar,
-                      // style: TextStyle(
-                      //     color: providerThema
-                      //         .temaActual.colorScheme.tertiary)
-                    )),
+                    child:
+                        Text(cancelar, style: TextStyle(color: Colors.white))),
                 const SizedBox(
                   width: 8,
                 ),
                 ElevatedButton(
-                    style: ButtonStyle(
-                        // backgroundColor: MaterialStateProperty.all(
-                        //     providerThema.temaActual.colorScheme.secondary),
-                        ),
+                    // style: ButtonStyle(
+                    //     // backgroundColor: MaterialStateProperty.all(
+                    //     //     providerThema.temaActual.colorScheme.secondary),
+                    //     ),
                     onPressed: () async {
                       // res = true;
                       res = await param0.call();
                       Navigator.pop(context);
                     },
-                    child: Text(
-                      aceptar,
-                      // style: TextStyle(
-                      //     color:
-                      //         providerThema.temaActual.colorScheme.tertiary)
-                    ))
+                    child: Text(aceptar, style: TextStyle(color: Colors.white)))
               ],
             )
           ],

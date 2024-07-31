@@ -55,7 +55,7 @@ class GenericoTextTema3 extends StatelessWidget {
         controller: textController,
         enabled: enabled,
         inputFormatters: [
-          if (mayusculas) UpperCaseTextFormatter(),
+          // if (mayusculas) UpperCaseTextFormatter(),
           if (keyboardType == TextInputType.number)
             FilteringTextInputFormatter.digitsOnly,
           FilteringTextInputFormatter.allow(
@@ -67,8 +67,8 @@ class GenericoTextTema3 extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           fontSize: 20,
           height: height,
-          // color: Theme.of(context).colorScheme.inversePrimary,
-          color: Colors.blue,
+          color: Theme.of(context).colorScheme.inversePrimary,
+          // color: Colors.blue,
         ),
         obscureText: obscureText,
         decoration: Estilos.textfromfieldCTema3(
