@@ -1,0 +1,2 @@
+https://pub.dev/packages/qr_flutter
+https://pub.dev/packages/qr_code_scanner/example
